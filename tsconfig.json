@@ -23,8 +23,8 @@
   },
   "include": [
     "src",
-    "test"
-  ],
+    "tests"
+, "tests/jest-pretest.ts", "tests/unit"  ],
   "atom": {
     "rewriteTsconfig": false
   }

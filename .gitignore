@@ -35,3 +35,7 @@ node_modules
 /src/environment.ts
 /dist
 /test/coverage-jest
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

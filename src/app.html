@@ -1,10 +1,29 @@
 <template>
   <h1>${message}</h1>
 
-  <ul id="sortable-items">
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
-  
+  <article id="draganddrop">
+    <h2 class="sg--sectionTitle">Drag and drop lists</h2>
+    <div class="sg--sectionContent">
+      <div data-testid="draganddrop-container" sortable.bind="sortableOptions"
+        sortable-end.delegate="onDragEnd($event) & stopPropagation">
+        <div repeat.for="item of sortableItems">
+          <div data-testid="parent-dragdroppable" class="fqa-dragdroppable">
+            <div class="fqa-draggable-handle"></div>
+            <div class="fqa-dragdroppable-content">
+              ${item.label}
+            </div>
+          </div>
+          <div sortable.bind="sortableOptions" sortable-end.delegate="onChildDragEnd($event, item) & stopPropagation">
+            <div class="fqa-dragdroppable sg--indent" repeat.for="child of item.children">
+              <div class="fqa-draggable-handle"></div>
+              <div data-testid="child-dragdroppable" class="fqa-dragdroppable-content">
+                ${child.label}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
 </template>

@@ -6,11 +6,16 @@ export class App {
 
   public el: HTMLElement;
 
-  attached() {
-    this.el = document.getElementById('sortable-items');
-    if (this.el) {
-      Sortable.create(this.el);
-    }
-  }
-
+  public sortableItems = [
+    { label: 'one' },
+    { label: 'two' },
+    {
+      label: 'three',
+      children: [
+        { label: 'child 1' },
+        { label: 'child 2' },
+        { label: 'child 3' },
+        { label: 'child 4' }],
+    },
+  ];
 }
